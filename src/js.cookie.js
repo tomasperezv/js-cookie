@@ -24,7 +24,7 @@
 		};
 	}
 }(function () {
-	function extend () {
+	function processArguments () {
 		var i = 0;
 		var result = {};
 		for (; i < arguments.length; i++) {
@@ -46,7 +46,7 @@
 			// Write
 
 			if (arguments.length > 1) {
-				attributes = extend({
+				attributes = processArguments({
 					path: '/'
 				}, api.defaults, attributes);
 
@@ -142,7 +142,7 @@
 		api.defaults = {};
 
 		api.remove = function (key, attributes) {
-			api(key, '', extend(attributes, {
+			api(key, '', processArguments(attributes, {
 				expires: -1
 			}));
 		};
